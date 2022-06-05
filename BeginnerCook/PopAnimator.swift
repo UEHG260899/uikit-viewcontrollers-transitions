@@ -32,6 +32,18 @@
 
 import UIKit
 
-final class PopAnimator {
+final class PopAnimator: NSObject {
+    private let duration: TimeInterval = 1
+}
 
+extension PopAnimator: UIViewControllerAnimatedTransitioning {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        duration
+    }
+    
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        
+    }
+    
+    
 }
