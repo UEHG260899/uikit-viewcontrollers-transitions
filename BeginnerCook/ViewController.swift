@@ -70,12 +70,15 @@ final class ViewController: UIViewController {
 // MARK: - TransitioningDelegate
 extension ViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        selectedImage.alpha = 0
         popAnimator.originFrame = selectedImage.superview!.convert(selectedImage.frame, to: nil)
+        popAnimator.presenting = true
         return popAnimator
     }
     
     func animationController(forDismissed _: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        nil
+        popAnimator.presenting = false
+        return popAnimator
     }
 }
 
